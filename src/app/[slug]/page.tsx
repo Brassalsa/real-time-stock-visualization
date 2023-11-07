@@ -14,7 +14,7 @@ type Error =
       message?: string;
     };
 
-function page() {
+function StockData() {
   const params = useParams();
   // page slug
   const { slug } = params;
@@ -90,4 +90,4 @@ function page() {
   );
 }
 
-export default page;
+export default StockData;
