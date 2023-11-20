@@ -34,7 +34,7 @@ const RealTimeData = ({ recent }: { recent?: any }) => {
   if (isLoading) {
     return (
       <div className="animate-pulse w-3/4 mx-auto">
-        <div className="h-4 bg-green-500 rounded w-20 mx-auto mb-2"></div>
+        <div className="h-4 bg-gray-500 rounded w-20 mx-auto mb-2"></div>
         <div className="space-y-2 flex flex-col justify-between">
           <div className="h-4 w-28 bg-gray-500 rounded mx-auto"></div>
           <div className="h-4 bg-gray-500 rounded w-5/6 mx-auto"></div>
