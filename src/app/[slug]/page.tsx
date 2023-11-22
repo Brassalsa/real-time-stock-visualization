@@ -4,15 +4,13 @@ import Chart from "react-google-charts";
 import Loading from "../loading";
 import ErrorComponent from "../error";
 import navLinks from "@/utils/nav_links";
-import RealTimeData from "./component/realTimeData";
+import GetRealTimeData from "@/components/realTimeData/GetRealTimeData";
 import { useParams } from "next/navigation";
 
-type Error =
-  | undefined
-  | {
-      status?: number;
-      message?: string;
-    };
+type Error = {
+  status?: number;
+  message?: string;
+} | null;
 
 function StockData() {
   const params = useParams();
@@ -23,7 +21,8 @@ function StockData() {
 
   const label = navLinks.find((i) => i[1] == slug);
   const [isloading, setIsloading] = useState(true);
-  const [err, setErr]: [err: Error, setErr: Function] = useState<Error>();
+  const [err, setErr]: [err: Error, setErr: Function] = useState<Error>(null);
+
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(`/api/stock-collection?stock=${slug}`);
@@ -58,7 +57,7 @@ function StockData() {
   if (err) {
     return (
       <ErrorComponent
-        customError={{ status: err?.status, message: err?.message }}
+        customError={{ status: err.status, message: err.message }}
       />
     );
   }
@@ -67,7 +66,7 @@ function StockData() {
     <div className="flex flex-col justify-center items-center">
       {chartData.length > 1 && (
         <>
-          <RealTimeData recent={chartData[chartData.length - 1][1]} />
+          <GetRealTimeData recent={chartData[chartData.length - 1][1]} />
           <Chart
             width={"95%"}
             height={"400px"}

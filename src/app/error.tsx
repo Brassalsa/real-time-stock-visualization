@@ -18,7 +18,20 @@ export default function ErrorComponent({
       <p className="text-lg font-light text-gray-600">
         {customError?.message || "Something went wrong"}
       </p>
-      <button onClick={() => router.refresh()}>Try again</button>
+      <span className="flex gap-3">
+        <button
+          onClick={() => router.refresh()}
+          className="bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-all duration-300 text-white p-1 rounded-md"
+        >
+          Try again
+        </button>
+        <button
+          onClick={() => router.back()}
+          className="bg-blue-600 hover:bg-blue-500 active:bg-blue-700 transition-all duration-300 text-white p-1 rounded-md"
+        >
+          Back
+        </button>
+      </span>
     </div>
   );
 }
