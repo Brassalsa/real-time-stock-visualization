@@ -66,7 +66,10 @@ function StockData() {
     <div className="flex flex-col justify-center items-center">
       {chartData.length > 1 && (
         <>
-          <GetRealTimeData recent={chartData[chartData.length - 1][1]} />
+          <GetRealTimeData
+            recent={chartData[chartData.length - 1][1]}
+            slug={slug}
+          />
           <Chart
             width={"95%"}
             height={"400px"}

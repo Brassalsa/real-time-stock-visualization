@@ -7,11 +7,16 @@ import RealTimeData, {
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const GetRealTimeData = ({ recent }: { recent?: any }) => {
+const GetRealTimeData = ({
+  recent,
+  slug,
+}: {
+  recent?: any;
+  slug: string | string[];
+}) => {
   const [data, setData] = useState<RealTimeDataType>();
   const [isLoading, setLoading] = useState(true);
   const params = useParams();
-  const { slug } = params;
 
   const getLatestData = async () => {
     const res = await fetch(`/api/stock-data?stock=${slug}`);

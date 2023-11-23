@@ -12,7 +12,10 @@ export type RealTimeDataType = {
 function RealTimeData({ data }: { data: RealTimeDataType }) {
   return (
     <>
-      <div className="flex flex-wrap gap-2 justify-between mb-5 px-4">
+      <div
+        className="flex flex-wrap gap-2 justify-between mb-5 px-4"
+        data-testid="real-time-data-comp"
+      >
         <h2 className="text-xl font-semibold w-full text-center">
           Stock Information
         </h2>
